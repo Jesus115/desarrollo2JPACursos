@@ -10,7 +10,7 @@ public class HorarioControlador {
 	public String listarHorario() {
 		return "/horarios/listaHorarios";//ruta fisica de pagina
 	} 
-	@GetMapping("/horario/nuevo")
+	@GetMapping("/horario_nuevo")
 	public String nuevoHorario() {
 		return "/horarios/horarios";//ruta fisica de pagina
 	}

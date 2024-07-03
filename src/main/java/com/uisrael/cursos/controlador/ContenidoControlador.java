@@ -10,7 +10,7 @@ public class ContenidoControlador {
 	public String listarContenido() {
 		return "/contenido/listaContenido";//ruta fisica de pagina
 	} 
-	@GetMapping("/contenido/nuevo")
+	@GetMapping("/contenido_nuevo")
 	public String nuevoContenido() {
 		return "/contenido/contenido";//ruta fisica de pagina
 	}

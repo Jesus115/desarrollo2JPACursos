@@ -10,7 +10,7 @@ public class EstudianteControlador {
 	public String listarEstudiante() {
 		return "/estudiantes/listaEstudiantes";//ruta fisica de pagina
 	} 
-	@GetMapping("/estudiante/nuevo")
+	@GetMapping("/estudiante_nuevo")
 	public String nuevoEstudiante() {
 		return "/estudiantes/estudiantes";//ruta fisica de pagina
 	}

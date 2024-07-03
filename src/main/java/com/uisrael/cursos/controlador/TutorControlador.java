@@ -10,7 +10,7 @@ public class TutorControlador {
 	public String listarTutor() {
 		return "/tutores/listaTutores";//ruta fisica de pagina
 	} 
-	@GetMapping("/tutor/nuevo")
+	@GetMapping("/tutor_nuevo")
 	public String nuevoTutor() {
 		return "/tutores/tutores";//ruta fisica de pagina
 	}

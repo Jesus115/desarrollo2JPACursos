@@ -10,7 +10,7 @@ public class InscripcionControlador {
 	public String listarInscripciones() {
 		return "/inscripciones/listaInscripciones";//ruta fisica de pagina
 	} 
-	@GetMapping("/inscripciones/nuevo")
+	@GetMapping("/inscripciones_nuevo")
 	public String nuevoInscripciones() {
 		return "/inscripciones/inscripciones";//ruta fisica de pagina
 	}
