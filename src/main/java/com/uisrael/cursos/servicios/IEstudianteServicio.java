@@ -2,7 +2,10 @@ package com.uisrael.cursos.servicios;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.uisrael.cursos.modelo.Estudiante;
+@Service
 
 public interface IEstudianteServicio {
 	public void insertarEstudiante(Estudiante nuevoEstudiante);
@@ -14,5 +17,6 @@ public interface IEstudianteServicio {
 	List<Estudiante> buscarEstudiantesPorNombreYApellido(String nombre, String apellido);
 	List<Estudiante> buscarEstudiantesPorCedulaIniciandoCon(String prefix);
 	List<Estudiante> buscarEstudiantesPorNombreOApellidoConteniendo(String cadena);
-	
+	public Estudiante buscarEstudianteId(int idEstudiante);
+	public boolean eliminarEstudianteId(int idEstudiante);
 }

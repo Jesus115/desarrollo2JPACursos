@@ -83,6 +83,21 @@ public class CursoServicioImpl implements ICursoServicio{
 		// TODO Auto-generated method stub
 		return cursoRepositorio.traerTodosMisCursos(name);
 	}
+
+	@Override
+	public Curso buscarCursoId(int idCurso) {
+		return cursoRepositorio.findById(idCurso).get();
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public boolean eliminarCursoId(int idCurso) {
+		
+				cursoRepositorio.deleteById(idCurso);
+				return true;		
+
+		// TODO Auto-generated method stub
+	}
 	
 	
 }

@@ -2,6 +2,8 @@ package com.uisrael.cursos.modelo;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,7 +27,7 @@ public class Inscripcion  implements Serializable {
     @ManyToOne
     @JoinColumn(name = "curso_idCurso")
     private Curso curso;
-
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaInscripcion;
     private boolean estadoInscripcion;
 }

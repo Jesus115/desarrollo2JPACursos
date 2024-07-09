@@ -37,7 +37,7 @@ public class TutorServicioImpl implements ITutorServicio {
 	@Override
 	public List<Tutor> listarTutor() {
 		// TODO Auto-generated method stub
-		return null;
+		return tutorRepositorio.findAll();
 	}
 	@PersistenceContext
     private EntityManager entityManager;
@@ -62,5 +62,18 @@ public class TutorServicioImpl implements ITutorServicio {
         query.setParameter("correo", correo);
         return query.getResultList();
     }
+
+	@Override
+	public Tutor buscarTutorId(int idTutor) {
+		// TODO Auto-generated method stub
+		return tutorRepositorio.findById(idTutor).get();
+
+	}
+
+	@Override
+	public boolean eliminarTutorId(int idTutor) {
+		tutorRepositorio.deleteById(idTutor);
+		return true;	
+	}
 
 }

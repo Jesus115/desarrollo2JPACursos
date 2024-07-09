@@ -6,11 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.uisrael.cursos.modelo.Contenidos;
-import com.uisrael.cursos.modelo.Curso;
 import com.uisrael.cursos.repositorio.IContenidoRepositorio;
 import com.uisrael.cursos.servicios.IContenidoServicio;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
@@ -63,7 +61,19 @@ public class ContenidoServicioImpl implements IContenidoServicio {
 	@Override
 	public List<Contenidos> listarContenidos() {
 		// TODO Auto-generated method stub
-		return null;
+		return contenidoRepositorio.findAll();
+	}
+
+	@Override
+	public Contenidos buscarContenidoId(int idContenido) {
+		return contenidoRepositorio.findById(idContenido).get();
+
+	}
+
+	@Override
+	public boolean eliminarContenidoId(int idCurso) {
+		contenidoRepositorio.deleteById(idCurso);
+		return true;
 	}
 
 	

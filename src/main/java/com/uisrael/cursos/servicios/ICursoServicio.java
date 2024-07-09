@@ -13,4 +13,7 @@ public interface ICursoServicio {
 	public List<Curso> listarCursoTQ();
 	public List<Curso> listarCursoParametro(String nombre);
 	public List<Curso> traerTodosMisCursos(String name);
+	public Curso buscarCursoId(int idCurso);
+	public boolean eliminarCursoId(int idCurso);
+	
 }

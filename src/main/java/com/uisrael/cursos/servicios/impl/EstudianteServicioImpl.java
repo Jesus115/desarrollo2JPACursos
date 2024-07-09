@@ -81,6 +81,16 @@ public class EstudianteServicioImpl implements IEstudianteServicio{
         query.setParameter("cadena", "%" + cadena + "%");
         return query.getResultList();
     }
+	@Override
+	public Estudiante buscarEstudianteId(int idEstudiante) {
+		return estudianteRepositorio.findById(idEstudiante).get();
+
+	}
+	@Override
+	public boolean eliminarEstudianteId(int idEstudiante) {
+		estudianteRepositorio.deleteById(idEstudiante);
+		return true;
+	}
 	
 	
 	

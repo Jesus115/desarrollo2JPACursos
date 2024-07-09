@@ -2,10 +2,11 @@ package com.uisrael.cursos.servicios;
 
 import java.util.List;
 
-import com.uisrael.cursos.modelo.Contenidos;
-import com.uisrael.cursos.modelo.Curso;
+import org.springframework.stereotype.Service;
 
-import jakarta.persistence.Entity;
+import com.uisrael.cursos.modelo.Contenidos;
+
+@Service
 
 public interface IContenidoServicio {
 	public void insertarContenidos(Contenidos nuevoContenidos);
@@ -14,4 +15,7 @@ public interface IContenidoServicio {
 	public List<Contenidos> buscarContenidosPorTitulo(String titulo);
     public List<Contenidos> buscarContenidosPorDescripcionContiene(String descripcion);
     public List<Contenidos> buscarContenidosPorTipo(String tipo);
+	public Contenidos buscarContenidoId(int idContenido);
+	public boolean eliminarContenidoId(int idCurso);
+
 }

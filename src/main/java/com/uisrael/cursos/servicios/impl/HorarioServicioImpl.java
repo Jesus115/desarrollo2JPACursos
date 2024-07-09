@@ -36,7 +36,19 @@ public class HorarioServicioImpl implements IHorarioServicio{
 	@Override
 	public List<Horario> listarHorario() {
 		// TODO Auto-generated method stub
-		return null;
+		return horariooRepositorio.findAll();
+	}
+
+	@Override
+	public Horario buscarHorarioId(int idHorario) {
+		return horariooRepositorio.findById(idHorario).get();
+
+	}
+
+	@Override
+	public boolean eliminarHorarioId(int idHorario) {
+		horariooRepositorio.deleteById(idHorario);
+		return true;
 	}
 
 }

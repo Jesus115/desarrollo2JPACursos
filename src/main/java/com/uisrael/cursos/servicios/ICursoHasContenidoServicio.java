@@ -2,7 +2,10 @@ package com.uisrael.cursos.servicios;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.uisrael.cursos.modelo.CursoHasContenidos;
+@Service
 
 public interface ICursoHasContenidoServicio {
 	public void insertarCursoHasContenidos(CursoHasContenidos nuevoCursoHasContenidos);

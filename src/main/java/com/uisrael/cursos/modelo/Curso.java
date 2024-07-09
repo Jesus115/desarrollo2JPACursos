@@ -2,6 +2,9 @@ package com.uisrael.cursos.modelo;
 import java.io.Serializable;
 
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.Data;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -18,6 +21,7 @@ public class Curso  implements Serializable{
 	private String  nombre;
 	private String  descripcion;
 	private double  costo;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date  fechaRegistro;
 	private boolean  estado;
 	

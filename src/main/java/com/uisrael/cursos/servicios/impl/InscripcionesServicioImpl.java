@@ -45,7 +45,7 @@ public class InscripcionesServicioImpl implements IInscripcionesServicio{
 	@Override
 	public List<Inscripcion> listarInscripcion() {
 		// TODO Auto-generated method stub
-		return null;
+		return inscripcionesRepositorio.findAll();
 	}
 	 
     @Override
@@ -73,5 +73,17 @@ public class InscripcionesServicioImpl implements IInscripcionesServicio{
         query.setParameter("estudiante", estudiante);
         return query.getResultList();
     }
+
+	@Override
+	public Inscripcion buscarInscripcionId(int idInscripcion) {
+		return inscripcionesRepositorio.findById(idInscripcion).get();
+
+	}
+
+	@Override
+	public boolean eliminarInscripcionId(int idInscripcion) {
+		inscripcionesRepositorio.deleteById(idInscripcion);
+		return true;
+	}
 
 }
