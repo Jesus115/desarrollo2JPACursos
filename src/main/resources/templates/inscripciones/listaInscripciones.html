@@ -58,7 +58,7 @@
 										            <tr>
 										                <th>#</th>
 										                <th>ESTUDIANTE</th>
-										                <th>INSCRIPCION</th>
+										                <th>CURSO</th>
 										                <th>FECHA REGISTRO</th>
 										                <th>ESTADO</th>
 										                <th></th>
@@ -68,9 +68,12 @@
 				
      												<tr th:each="inscripcion:${lista}">
 										                <td th:text="${inscripcion.idInscripcion}"></td>
-										               
+										                <td th:text="${inscripcion.fkEstudiante.nombreEstudiante} + ' '+${inscripcion.fkEstudiante.apellidoEstudiante}"></td>
+										                <td th:text="${inscripcion.fkCurso.nombre}"></td>
+  										                
+  
 										                <td th:text="${inscripcion.fechaInscripcion}"></td>
-										                <td th:text="${inscripcion.estadoInscripcion}"></td>
+										                <td th:text="${inscripcion.estadoInscripcion ? 'ACTIVO' : 'INACTIVO'}"></td>
 										                
 										                <td>
 										                	<a th:href="@{/editar_inscripciones/}+${inscripcion.idInscripcion}" class="btn btn-warning">

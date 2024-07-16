@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html 
+	lang="es" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{plantilla/plantilla}"
+>
+<head>
+    <title>Lista Curso Horario</title>
+</head>
+
+	<body>
+		<!-- Pre-loader start -->
+		<div layout:fragment="espaciocontenidohtml">
+			<div class="pcoded-content">
+				<!-- Page-header start -->
+				<div class="page-header">
+					<div class="page-block">
+						<div class="row align-items-center">
+							<div class="col-md-8">
+								<div class="page-header-title">
+									<h5 class="m-b-10">Lista Curso Horario</h5>
+									<p class="m-b-0">Encontraremos el Horario de cada curso</p>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<ul class="breadcrumb-title">
+									<li class="breadcrumb-item">
+										<a th:href="@{themeassets/index.html}"> <i class="fa fa-home"></i> </a>
+									</li>
+									<li class="breadcrumb-item"><a th:href="@{themeassets/#!}">Pages</a>
+									</li>
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Page-header end -->
+				<div class="pcoded-inner-content">
+					<div class="main-body">
+						<div class="page-wrapper">
+							<div class="page-body">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="card">
+											<div class="card-header">
+											<a title="Nuevo Horario" th:href="@{/horario_nuevo}" class="btn btn-warning">
+												<i class="fa fa-plus"></i> Nuevo Horario
+											</a>
+											<a title="Nuevo curso" th:href="@{/curso_nuevo}" class="btn btn-primary">
+												<i class="fa fa-plus"></i> Nuevo Curso
+											</a>
+											
+											<a title="Nuevo curso" th:href="@{/curso_horario_nuevo}" class="btn btn-success">
+												<i class="fa fa-plus"></i> Asociar Curso con Horario
+											</a>
+											</div>
+											<div class="card-block">
+												<div class="card-body">
+												 <table id="example" class="table table-striped" style="width:100%">
+													 <thead>
+														 <tr>
+															 <th>#</th>
+															 <th>Curso</th>
+															 <th>Descripcion Curso</th>
+															 <th>Fecha</th>
+															 <th>Hora Inicio</th>
+															 <th>Hora Fin</th>
+															
+															 <th></th>
+														 </tr>
+													 </thead>
+													 <tbody>
+														<tr th:each="ch:${lista}">
+															<td th:text="${ch.idHorarioCurso}"></td>
+															<td th:text="${ch.curso.nombre}"></td>
+															<td th:text="${ch.curso.descripcion}"></td>
+															<td th:text="${ch.horario.dia}"></td>
+															<td th:text="${ch.horario.horaInicio}"></td>
+															<td th:text="${ch.horario.horaFin}"></td>
+															
+															
+															
+															<td>
+																<a th:href="@{/editar_contenido/}+${ch.idHorarioCurso}" class="btn btn-warning">
+																	<i class="fa fa-pencil"></i> Editar
+																</a>
+																<a th:href="@{/eliminar_contenido/}+${ch.idHorarioCurso}" class="btn btn-danger">
+																	<i class="ti-trash"></i> Eliminar
+																</a>
+															</td>
+														</tr>
+						
+														 
+													 </tbody>
+							 
+												 </table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

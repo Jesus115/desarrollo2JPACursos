@@ -89,7 +89,7 @@ class CursosApplicationTests {
 		
         
 		Inscripcion inscripcion = new Inscripcion();
-		inscripcion.setCurso( nuevo);
+		inscripcion.setFkCurso( nuevo);
 		inscripcion.setFechaInscripcion(new Date());
 		inscripcion.setFkEstudiante(estNuevo);
 		inscripcion.setEstadoInscripcion(true);

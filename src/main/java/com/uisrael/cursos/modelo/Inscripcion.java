@@ -26,7 +26,7 @@ public class Inscripcion  implements Serializable {
     
     @ManyToOne
     @JoinColumn(name = "curso_idCurso")
-    private Curso curso;
+    private Curso fkCurso;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaInscripcion;
     private boolean estadoInscripcion;

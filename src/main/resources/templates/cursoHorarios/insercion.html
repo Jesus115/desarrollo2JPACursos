@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{plantilla/plantilla}">
+
+<head>
+
+</head>
+
+<body>
+
+	<div layout:fragment="espaciocontenidohtml">
+		<div class="pcoded-content">
+			<!-- Page-header start -->
+			<div class="page-header">
+				<div class="page-block">
+					<div class="row align-items-center">
+						<div class="col-md-8">
+							<div class="page-header-title">
+								<h5 class="m-b-10">Asociar Horarios a Curso</h5>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<ul class="breadcrumb-title">
+								<li class="breadcrumb-item"><a href="index.html"> <i
+										class="fa fa-home"></i>
+								</a></li>
+								<li class="breadcrumb-item"><a href="#!">Catalogos</a></li>
+								<li class="breadcrumb-item"><a href="#!">Horario Curso</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Page-header end -->
+			<div class="pcoded-inner-content">
+				<div class="main-body">
+					<div class="page-wrapper">
+						<div class="page-body">
+							<div class="row">
+								<div class="col-sm-12">
+									<div class="card">
+										<div class="card-header">
+											<h5>Nuevo Horario</h5>
+											
+											<div class="card-header-right">
+												<ul class="list-unstyled card-option">
+													<li><i class="fa fa-chevron-left"></i></li>
+													<li><i class="fa fa-window-maximize full-card"></i></li>
+													<li><i class="fa fa-minus minimize-card"></i></li>
+													<li><i class="fa fa-refresh reload-card"></i></li>
+													<li><i class="fa fa-times close-card"></i></li>
+												</ul>
+											</div>
+										</div>
+										<div class="card-block">
+											<form th:action="@{/insertar_curso_horario}" th:object="${nuevoCursoHorario}"
+												class="form-material" method="post">
+												<div class="form-group form-default">
+                                                                    
+                                                        <select name="cursos" th:field="*{curso.idCurso}"  required class="form-control" >
+                                                            <option 
+                                                                th:each="cursos:${listarCurso}" 
+                                                                th:value="${cursos.idCurso}" 
+                                                                th:text="${cursos.nombre}" 
+                                                                
+                                                                 
+                                                                ></option>	
+                                                        </select>
+                                                        <span
+                                                        class="form-bar"></span> <label class="float-label">Curso</label>
+                                                </div>
+                                                <div class="form-group form-default">
+																
+                                                        <select name="horario" th:field="*{horario.idHorario}"  required class="form-control" >
+                                                            <option 
+                                                                th:each="cont:${listarHorario}" 
+                                                                th:value="${cont.idHorario}" 
+                                                                th:text="${cont.dia}+' '+${cont.horaInicio}+' '+${cont.horaFin}" 
+																
+                                                                ></option>	
+                                                        </select>
+                                                        <span
+                                                        class="form-bar"></span> <label class="float-label">Horarios</label>
+                                                </div>
+
+												
+												<div class="form-group form-default">
+													<button type="submit" class="btn btn-primary">Guardar</button>
+												</div>
+
+												<input type="hidden" th:field="*{idHorarioCurso}">
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

@@ -18,7 +18,7 @@ public class HorarioHasCursoServicioImpl implements IHorarioHasCursoServicio {
 	public void insertarHorarioHasCurso(HorarioHasCurso nuevoHorario) {
 		// TODO Auto-generated method stub
 		try {
-			return;
+			 horarioHasCursoRepositorio.save(nuevoHorario);
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println(e.getMessage());
@@ -34,7 +34,7 @@ public class HorarioHasCursoServicioImpl implements IHorarioHasCursoServicio {
 	@Override
 	public List<HorarioHasCurso> listarHorarioHasCurso() {
 		// TODO Auto-generated method stub
-		return null;
+		return horarioHasCursoRepositorio.findAll();
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.uisrael.cursos.modelo.CursoHasContenidos;
 import com.uisrael.cursos.modelo.HorarioHasCurso;
 @Service
 

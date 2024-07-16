@@ -59,7 +59,7 @@ public class CursoHasContenidoServicioImpl implements ICursoHasContenidoServicio
 	@Override
 	public List<CursoHasContenidos> listarCursoHasContenidos() {
 		// TODO Auto-generated method stub
-		return null;
+		return cursoHasContenidosRepositorio.findAll();
 	}
 
 }

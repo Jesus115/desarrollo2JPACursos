@@ -10,8 +10,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.uisrael.cursos.modelo.Curso;
+import com.uisrael.cursos.modelo.Estudiante;
 import com.uisrael.cursos.modelo.Horario;
 import com.uisrael.cursos.modelo.Inscripcion;
+import com.uisrael.cursos.servicios.ICursoServicio;
+import com.uisrael.cursos.servicios.IEstudianteServicio;
 import com.uisrael.cursos.servicios.IInscripcionesServicio;
 
 @Controller
@@ -19,6 +23,10 @@ import com.uisrael.cursos.servicios.IInscripcionesServicio;
 public class InscripcionControlador {
 	@Autowired
 	public IInscripcionesServicio inscripcionService;
+	@Autowired
+	public ICursoServicio servicioCurso;
+	@Autowired
+	public IEstudianteServicio estudianteServicio;
 	
 	@GetMapping("/inscripciones")
 	public String listarInscripciones(Model model) {
@@ -28,7 +36,13 @@ public class InscripcionControlador {
 	} 
 	@GetMapping("/inscripciones_nuevo")
 	public String nuevoInscripciones(Model model) {
+		List<Curso> listarCurso = servicioCurso.listarCurso();
+		List<Estudiante> listarEstudiante = estudianteServicio.listarEstudiante();
+		model.addAttribute("listarEstudiantes", listarEstudiante);
+		model.addAttribute("listarCursos", listarCurso);
 		model.addAttribute("nuevoInscripciones", new Inscripcion());
+		
+		
 		return "/inscripciones/inscripciones";//ruta fisica de pagina
 	}
 	@PostMapping("/insertar_inscripciones")
@@ -40,6 +54,10 @@ public class InscripcionControlador {
 	@GetMapping("/editar_inscripciones/{idInscripciones}")
 	public String editarInscripciones(@PathVariable(value="idInscripciones") int idInscripciones,Model model ){
 		Inscripcion inscripcionesRecuperado = inscripcionService.buscarInscripcionId(idInscripciones);
+		List<Curso> listarCurso = servicioCurso.listarCurso();
+		List<Estudiante> listarEstudiante = estudianteServicio.listarEstudiante();
+		model.addAttribute("listarEstudiantes", listarEstudiante);
+		model.addAttribute("listarCursos", listarCurso);
 		model.addAttribute("nuevoInscripciones", inscripcionesRecuperado);
 		return "inscripciones/inscripciones";
 	}

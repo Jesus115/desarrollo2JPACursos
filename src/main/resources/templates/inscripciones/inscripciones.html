@@ -62,6 +62,34 @@
                                                 	<div class="card-body" >
 	                                                    <form th:action="@{/insertar_inscripciones}" th:object="${nuevoInscripciones}" method="post" class="form-material">
 														  	<div class="form-group form-default">
+																
+																	<select name="curso" th:field="*{fkCurso.idCurso}"  required class="form-control" >
+																		<option 
+																			th:each="cursos:${listarCursos}" 
+																			 
+																			th:value="${cursos.idCurso}" 
+																			th:text="${cursos.nombre}"
+																			></option>	
+																	</select>
+																	 <span
+																	class="form-bar"></span> <label class="float-label">Cursos</label>
+															</div>
+															<div class="form-group form-default">
+																
+																	<select name="estudiantes" th:field="*{fkEstudiante.idEstudiante}"  required class="form-control" >
+																		<option 
+																			th:each="estudiantes:${listarEstudiantes}" 
+																			th:value="${estudiantes.idEstudiante}" 
+																			th:text="${estudiantes.nombreEstudiante}" 
+																			
+																			th:selected="(${estudiantes.idEstudiante} == *{fkEstudiante})" 
+   																			th:readonly="(${estudiantes.idEstudiante} == *{fkEstudiante})" 
+																			></option>	
+																	</select>
+																	 <span
+																	class="form-bar"></span> <label class="float-label">Estudiante</label>
+															</div>
+														  	<div class="form-group form-default">
 																<input type="date" name="fecha" class="form-control"
 																	th:field="*{fechaInscripcion}" required> <span
 																	class="form-bar"></span> <label class="float-label">Fecha</label>

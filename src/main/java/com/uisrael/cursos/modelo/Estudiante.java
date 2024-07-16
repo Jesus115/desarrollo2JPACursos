@@ -1,11 +1,13 @@
 package com.uisrael.cursos.modelo;
 import java.io.Serializable;
-
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 @Data
 @Entity
@@ -20,6 +22,6 @@ public class Estudiante  implements Serializable{
 	private String  correoEstudiante;
 	private String  direccionEstudiante;
 	private boolean  estadoEstudiante;
-	//@OneToMany(mappedBy = "fkEstudiante")
-	//private List< Inscripcion> ListaInscripciones=new ArrayList<>();
+	@OneToMany(mappedBy = "fkEstudiante")
+	private List< Inscripcion> ListaInscripciones=new ArrayList<>();
 }
